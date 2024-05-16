@@ -4,7 +4,6 @@
 import os
 import dotenv
 import base64
-from PIL import Image
 from sendgrid import SendGridAPIClient
 from sendgrid.helpers.mail import (Mail, Attachment, FileContent, FileName, FileType, Disposition)
 
