@@ -10,8 +10,8 @@ from sendgrid.helpers.mail import (Mail, Attachment, FileContent, FileName, File
 dotenv.load_dotenv("../local.env")
 
 message = Mail(
-    from_email=os.getenv("PERSONAL_EMAIL"),
-    to_emails=os.getenv("PERSONAL_EMAIL"),
+    from_email=os.getenv("SEND_EMAIL"),
+    to_emails=os.getenv("SEND_EMAIL"),
     subject='Sending with Twilio SendGrid is Fun',
     html_content='<strong>and easy to do anywhere, even with Python</strong>')
 
@@ -29,7 +29,7 @@ attachedFile = Attachment(
 message.attachment = attachedFile
 
 try:
-    sg = SendGridAPIClient(os.getenv('SENDGRID_API_KEY2'))
+    sg = SendGridAPIClient(os.getenv('SENDGRID_API_KEY'))
     response = sg.send(message)
     print(response.status_code)
     print(response.body)
