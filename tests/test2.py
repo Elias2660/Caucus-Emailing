@@ -14,11 +14,6 @@ from sendgrid.helpers.mail import (
 with open("Content.html", "r") as file:
     data = file.read()
 
-with open("stuy.webp", "rb") as topAttatchment:
-    stuy_logo = base64.b64encode(topAttatchment.read())
-    
-
-print(stuy_logo)
 dotenv.load_dotenv("../local.env")
 
 
@@ -31,9 +26,11 @@ message = Mail(
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+    @import url("https://use.typekit.net/xjs0pcx.css");
+    </style>
 </head>
 <body style="display: grid; color: #4054B9; font-family: 'forma-djr-text', sans-serif; font-weight: bold;">
-    <img class="stuy" src="data:image/jpeg;base64,{stuy_logo}" alt="stuy" style="padding-top: 8vh; padding-bottom: 10vh; height: 10vh; justify-self: center;">
     <div class="text" style="padding-left: 5vw; padding-right: 5vw;">
         <div class="greeting" style="padding-bottom: 1vh;">
             Hi Elias, 
