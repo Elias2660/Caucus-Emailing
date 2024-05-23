@@ -1,7 +1,7 @@
+code128==0.3
 pillow==10.3.0
 python-barcode==0.15.1
 python-dotenv==1.0.1
 python-http-client==3.3.7
 sendgrid==6.11.0
 starkbank-ecdsa==2.2.0
-
