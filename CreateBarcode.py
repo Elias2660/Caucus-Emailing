@@ -43,4 +43,4 @@ def createBarcode(code:int, out_filename: str):
     new_image.save(f'{out_filename}', 'PNG')
     
 if __name__ == "__main__":
-    createBarcode((122344521312166789), "hello.png")
+    createBarcode((122344521312166789), "barcode.png")
