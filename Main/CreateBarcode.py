@@ -13,12 +13,12 @@ def createBarcode(code:int, out_filename: str):
     # Create empty image for barcode + text
     top_bott_margin = 80
     l_r_margin = 10
-    new_height = barcode_image.height + int(2 * top_bott_margin)
+    new_height = barcode_image.height + int(1 * top_bott_margin)
     new_width = barcode_image.width + (2* l_r_margin)
     new_image = Image.new( 'RGB', (new_width, new_height), (255, 255, 255))
 
     # put barcode on new image
-    barcode_y = 100
+    barcode_y = 30
     new_image.paste(barcode_image, (0, barcode_y))
 
     # object to draw text
@@ -36,8 +36,8 @@ def createBarcode(code:int, out_filename: str):
     center_barcode_value = (barcode_image.width / 2) - len(barcode_param) * 5.75
 
     # Draw text on picture
-    draw.text( (l_r_margin, 20), company_name, fill=(0, 0, 0), font = h1_font)
-    draw.text( (center_barcode_value, (new_height - footer_size - 40)), barcode_param, fill=(0, 0, 0), font=footer_font)
+    # draw.text( (l_r_margin, 20), company_name, fill=(0, 0, 0), font = h1_font)
+    draw.text( (center_barcode_value, (new_height - footer_size - 20)), barcode_param, fill=(0, 0, 0), font=footer_font)
 
     # save in file 
     new_image.save(f'{out_filename}', 'PNG')

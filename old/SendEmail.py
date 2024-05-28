@@ -10,7 +10,7 @@ from sendgrid.helpers.mail import (
     FileType,
     Disposition,
 )
-import CreateBarcode
+import Main.CreateBarcode as CreateBarcode
 
 
 def sendEmail(
