@@ -1,13 +1,12 @@
 import os
-import mimetypes
 from email.message import EmailMessage
 import dotenv
 from smtplib import SMTP_SSL as SMTP
 from email.utils import formatdate
 import sys
-import Main.CreateBarcode as CreateBarcode
+import CreateBarcode as CreateBarcode
 
-import Main.attachFile as attachFile
+import attachFile as attachFile
 dotenv.load_dotenv("../local.env")
 
 
@@ -80,3 +79,5 @@ def send_email(destination: list, session: int, name: str) -> str:
 
 if __name__ == "__main__":
     print(send_email(["exu51@stuy.edu"], 2083480230980, "Elias"))
+    #     print(send_email(["esie50@stuy.edu"], 2083480230980, "Ethan"))
+    #     print(send_email(["yzhang50@stuy.edu"], 2083480230980, "Will"))
