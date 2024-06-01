@@ -8,7 +8,7 @@ import CreateBarcode as CreateBarcode
 import attachFile as attachFile
 dotenv.load_dotenv("../local.env")
 
-def send_email(recipients: list, session: int, name: str) -> str:
+def send_email(recipients: list, session: str, name: str) -> str:
     SMTPserver = os.getenv("SMTPserver")
     sender = os.getenv("sender")
     USERNAME = os.getenv("USERNAME")
@@ -44,7 +44,7 @@ def send_email(recipients: list, session: int, name: str) -> str:
 </body>
 </html>"""
 
-    subject = "Jprom Test"
+    subject = "Your Jprom Ticket"
 
     try:
         msg = EmailMessage()
@@ -74,6 +74,6 @@ def send_email(recipients: list, session: int, name: str) -> str:
 
 
 if __name__ == "__main__":
-    print(send_email(["exu51@stuy.edu", "flam0799@gmail.com","esie50@stuy.edu"], 2083480230980, "Elias"))
     #     print(send_email(["esie50@stuy.edu"], 2083480230980, "Ethan"))
     #     print(send_email(["yzhang50@stuy.edu"], 2083480230980, "Will"))
+    print()

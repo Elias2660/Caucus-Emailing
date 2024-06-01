@@ -22,7 +22,7 @@ def sendEmail(
     message = Mail(
         from_email=sender,
         to_emails=sendee,
-        subject="Jprom Test",
+        subject="Your Junior Prom 2024 Ticket!",
         html_content=f"""<html>
 <head>
     <meta name="color-scheme" content="light only">
