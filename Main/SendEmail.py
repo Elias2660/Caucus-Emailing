@@ -17,9 +17,9 @@ def send_email(recipients: list, session: str, name: str) -> str:
     if not SMTPserver or not sender or not USERNAME or not PASSWORD:
         sys.exit("Missing environment variables")
 
-    print(f"SMTP Server: {SMTPserver}")
-    print(f"Sender: {sender}")
-    print(f"Username: {USERNAME}")
+    # print(f"SMTP Server: {SMTPserver}")
+    # print(f"Sender: {sender}")
+    # print(f"Username: {USERNAME}")
 
     content = f"""
     <html>
@@ -44,7 +44,7 @@ def send_email(recipients: list, session: str, name: str) -> str:
 </body>
 </html>"""
 
-    subject = "Your Jprom Ticket"
+    subject = "Your Junior Prom 2024 Ticket"
 
     try:
         msg = EmailMessage()
@@ -58,22 +58,29 @@ def send_email(recipients: list, session: str, name: str) -> str:
 
         msg.set_content(content, subtype="html")
         CreateBarcode.createBarcode(session, "barcode_image.png")
-        attachFile.attach_file(msg, "barcode_image.png")
+        
+        try:
+            attachFile.attach_file(msg, "barcode_image.png")
+        except Exception as e:
+            print(f"Failed to attach file to {name}: {str(e)}")
+            return
+        
+        
         conn = SMTP(SMTPserver)
-        conn.set_debuglevel(True)  # Enable debugging output
+        # conn.set_debuglevel(True)  # Enable debugging output
         conn.login(USERNAME, PASSWORD)
         try:
             conn.sendmail(sender, recipients, msg.as_string())
         finally:
             conn.quit()
-        return "Mail sent successfully"
+        return f"Mail sent successfully to {name}"
 
     except Exception as e:
         print("Mail failed:", str(e))
-        sys.exit(f"Mail failed; {str(e)}")
+        return
+        # sys.exit(f"Mail failed; {str(e)}")
 
 
 if __name__ == "__main__":
-    #     print(send_email(["esie50@stuy.edu"], 2083480230980, "Ethan"))
+    print(send_email(["exu51@stuy.edu"], 2083480230980, "Ethan"))
     #     print(send_email(["yzhang50@stuy.edu"], 2083480230980, "Will"))
-    print()
