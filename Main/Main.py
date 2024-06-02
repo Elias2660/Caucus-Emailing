@@ -8,8 +8,8 @@ data = pd.read_csv('../data/actualfinaljpromlist.csv', names = ["date", "session
 
 # %%
 
-start = 100
-end = 220
+start = 220
+end = 380
 
 # %%
 
@@ -26,7 +26,7 @@ for i in range(start, min(end, highest)):
     approval = p["approval"]
     if ("Approved" in approval) : 
         print(send_email([email, "yinwei.zhang@stuysu.org", "exu51@stuy.edu", "ethan.sie@stuysu.org"], session_id, name))
-        time.sleep(3)
+        time.sleep(2)
     else:
         print(f"{name} is not approved")
 

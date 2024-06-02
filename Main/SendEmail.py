@@ -82,5 +82,5 @@ def send_email(recipients: list, session: str, name: str) -> str:
 
 
 if __name__ == "__main__":
-    print(send_email(["exu51@stuy.edu"], 2083480230980, "Ethan"))
     #     print(send_email(["yzhang50@stuy.edu"], 2083480230980, "Will"))
+    ...
