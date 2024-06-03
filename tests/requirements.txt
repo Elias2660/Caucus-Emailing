@@ -1,7 +1,7 @@
 code128==0.3
 contourpy==1.2.1
 cycler==0.12.1
-fonttools==4.52.4
+fonttools==4.53.0
 importlib_resources==6.4.0
 kiwisolver==1.4.5
 matplotlib==3.9.0
@@ -19,4 +19,4 @@ sendgrid==6.11.0
 six==1.16.0
 starkbank-ecdsa==2.2.0
 tzdata==2024.1
-zipp==3.19.0
+zipp==3.19.1
