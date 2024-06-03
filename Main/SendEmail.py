@@ -13,7 +13,6 @@ def send_email(recipients: list, session: str, name: str) -> str:
     sender = os.getenv("sender")
     USERNAME = os.getenv("USERNAME")
     PASSWORD = os.getenv("PASSWORD")
-
     if not SMTPserver or not sender or not USERNAME or not PASSWORD:
         sys.exit("Missing environment variables")
 
@@ -67,10 +66,12 @@ def send_email(recipients: list, session: str, name: str) -> str:
         
         
         conn = SMTP(SMTPserver)
-        # conn.set_debuglevel(True)  # Enable debugging output
+        conn.set_debuglevel(True)  # Enable debugging output
         conn.login(USERNAME, PASSWORD)
         try:
             conn.sendmail(sender, recipients, msg.as_string())
+        except Exception as e:
+            print("Failed:", str(e))
         finally:
             conn.quit()
         return f"Mail sent successfully to {name}"
@@ -82,5 +83,4 @@ def send_email(recipients: list, session: str, name: str) -> str:
 
 
 if __name__ == "__main__":
-    #     print(send_email(["yzhang50@stuy.edu"], 2083480230980, "Will"))
-    ...
+    print(send_email(["exu51@stuy.edu"], "2083480230980", "Will"))
